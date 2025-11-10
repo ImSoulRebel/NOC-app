@@ -1,4 +1,4 @@
-import { ServerApp } from './presetntation/serverApp';
+import { ServerApp } from './presentation/serverApp';
 
 (async () => {
   main();
