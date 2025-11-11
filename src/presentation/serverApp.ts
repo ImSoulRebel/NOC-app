@@ -11,8 +11,8 @@ export class ServerApp {
   public static start() {
     console.log('Server application has started...');
     CronAdapter.createJob('*/5 * * * * *', () => {
-      // const url = 'https://google.com';
-      const url = 'http://localhost:3000';
+      const url = 'https://google.com';
+      // const url = 'http://localhost:3000';
       new CheckService(
         fileSystemLogRepository,
         () => console.log(`Service at ${url} is available.`),

@@ -19,18 +19,20 @@ export class CheckService implements CheckServiceInterface {
       if (!response.ok) {
         throw new Error(`Error on service check: ${url}`);
       }
-      const log = new LogEntity(
-        `Service check successful: ${url}`,
-        LogLevel.LOW,
-      );
+      const log = new LogEntity({
+        message: `Service check successful: ${url}`,
+        level: LogLevel.LOW,
+        origin: 'check-service.ts',
+      });
       await this.LogRepository.saveLog(log);
       this.successCallback();
       return true;
     } catch (error) {
-      const log = new LogEntity(
-        `Service check failed: ${url} - ${(error as Error).message}`,
-        LogLevel.HIGH,
-      );
+      const log = new LogEntity({
+        message: `Service check failed: ${url} - ${(error as Error).message}`,
+        level: LogLevel.HIGH,
+        origin: 'check-service.ts',
+      });
       await this.LogRepository.saveLog(log);
       this.errorCallback(`${error}`);
       return false;
