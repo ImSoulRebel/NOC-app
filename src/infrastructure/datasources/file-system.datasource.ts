@@ -1,5 +1,4 @@
-/// <reference types="node" />
-import * as fs from 'fs';
+import fs from 'fs';
 import { LogDataSource } from '../../domain/datasources/log.datasource';
 import { LogEntity, LogLevel } from '../../domain/entities/log.entitity';
 
