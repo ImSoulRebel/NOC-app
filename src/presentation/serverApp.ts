@@ -1,8 +1,8 @@
 import { CheckService } from '../domain/use-cases/checks/check-service';
-import { SendLogsUseCase } from '../domain/use-cases/logs/email/send-logs.usecase';
 import { FileSystemDataSource } from '../infrastructure/datasources/file-system.datasource';
 import { LogRepositoryImpl } from '../infrastructure/repositories/log.repository.impl';
 import { CronAdapter } from './adapters/cron/cron-adapter';
+// import { SendLogsUseCase } from '../domain/use-cases/email/send-logs.usecase';
 // import { EmailAdapter } from './adapters/email/email.adapter';
 
 const fileSystemLogRepository = new LogRepositoryImpl(
