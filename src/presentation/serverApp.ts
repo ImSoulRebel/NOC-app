@@ -1,12 +1,14 @@
 import { CheckService } from '../domain/use-cases/checks/check-service';
 import { FileSystemDataSource } from '../infrastructure/datasources/file-system.datasource';
+import { MongoLogDataSource } from '../infrastructure/datasources/mongo-log.datasource';
 import { LogRepositoryImpl } from '../infrastructure/repositories/log.repository.impl';
 import { CronAdapter } from './adapters/cron/cron-adapter';
 // import { SendLogsUseCase } from '../domain/use-cases/email/send-logs.usecase';
 // import { EmailAdapter } from './adapters/email/email.adapter';
 
-const fileSystemLogRepository = new LogRepositoryImpl(
-  new FileSystemDataSource(),
+const logRepository = new LogRepositoryImpl(
+  // new FileSystemDataSource(),
+  new MongoLogDataSource(),
 );
 
 export class ServerApp {
@@ -44,7 +46,7 @@ export class ServerApp {
       const url = 'https://google.com';
       // const url = 'http://localhost:3000';
       new CheckService(
-        fileSystemLogRepository,
+        logRepository,
         () => console.log(`Service at ${url} is available.`),
         (error: string) => console.error(`Service check failed: ${error}`),
       ).execute(url);

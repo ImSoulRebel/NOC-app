@@ -27,6 +27,7 @@ export class LogEntity {
   }
 
   static fromJSONtoEntity(json: string): LogEntity {
+    json = json === '' ? '{}' : json;
     const obj = JSON.parse(json);
     const log = new LogEntity({
       message: obj.message,
@@ -40,5 +41,19 @@ export class LogEntity {
 
   static fromJSONArrayToEntities(jsonArray: string[]): LogEntity[] {
     return jsonArray.map((json) => LogEntity.fromJSONtoEntity(json));
+  }
+
+  static fromObjectToEntity(object: { [key: string]: any }): LogEntity {
+    const log = new LogEntity({
+      message: object.message,
+      level: object.level,
+      createdAt: object.createdAt ? new Date(object.createdAt) : new Date(),
+      origin: object.origin,
+    });
+    return log;
+  }
+
+  static fromObjectsToEntities(objects: { [key: string]: any }[]): LogEntity[] {
+    return objects.map((obj) => LogEntity.fromObjectToEntity(obj));
   }
 }
