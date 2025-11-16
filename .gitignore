@@ -8,3 +8,7 @@ logs/
 .DS_Store
 .vscode/
 mongo-data/
+postgres-data/
+/src/generated/prisma
+
+/src/generated/prisma
