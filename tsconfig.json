@@ -17,6 +17,10 @@
     // "types": ["node"],
     // and npm install -D @types/node
 
+    // TypeORM decorators support
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+
     // Other Outputs
     "sourceMap": true,
     "declaration": true,

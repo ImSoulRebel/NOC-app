@@ -13,3 +13,11 @@ export const MONGO_URL = env.get('MONGO_URL').required().asString();
 export const MONGO_DB_NAME = env.get('MONGO_DB_NAME').required().asString();
 export const MONGO_USER = env.get('MONGO_USER').required().asString();
 export const MONGO_PASS = env.get('MONGO_PASS').required().asString();
+
+export const POSTGRES_PORT = env.get('POSTGRES_PORT').required().asPortNumber();
+export const POSTGRES_USER = env.get('POSTGRES_USER').required().asString();
+export const POSTGRES_PASSWORD = env
+  .get('POSTGRES_PASSWORD')
+  .required()
+  .asString();
+export const POSTGRES_DB = env.get('POSTGRES_DB').required().asString();

@@ -9,6 +9,3 @@ logs/
 .vscode/
 mongo-data/
 postgres-data/
-/src/generated/prisma
-
-/src/generated/prisma
