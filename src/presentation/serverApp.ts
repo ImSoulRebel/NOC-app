@@ -1,6 +1,7 @@
 import { CheckService } from '../domain/use-cases/checks/check-service';
 import { FileSystemDataSource } from '../infrastructure/datasources/file-system.datasource';
 import { MongoLogDataSource } from '../infrastructure/datasources/mongo-log.datasource';
+import { PostgresLogDataSource } from '../infrastructure/datasources/postgres-log.datasource';
 import { LogRepositoryImpl } from '../infrastructure/repositories/log.repository.impl';
 import { CronAdapter } from './adapters/cron/cron-adapter';
 // import { SendLogsUseCase } from '../domain/use-cases/email/send-logs.usecase';
@@ -9,6 +10,7 @@ import { CronAdapter } from './adapters/cron/cron-adapter';
 const logRepository = new LogRepositoryImpl(
   // new FileSystemDataSource(),
   new MongoLogDataSource(),
+  // new PostgresLogDataSource(),
 );
 
 export class ServerApp {
